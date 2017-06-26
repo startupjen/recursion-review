@@ -28,7 +28,7 @@ var getElementsByClassName = function(className
   //push to array if it has it
   //recursion
 
-    var children = element.children;
+    var children = Array.prototype.slice.call(element.children);
     for (var i = 0; i < children.length; i++) {
       findClassName(className,children[i]);
     }
@@ -39,11 +39,7 @@ var getElementsByClassName = function(className
 
   findClassName(className,documentBody);
   
-
 //if classname found in element, push it to the result array
   
-  
-
-
   return elementsWithClassName; 
   };
