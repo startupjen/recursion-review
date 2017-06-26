@@ -4,17 +4,11 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+var getElementsByClassName = function(className) {
   var elementsWithClassName = [];
-
-  
-  //we'll start on document.body level
   var documentBody = document.body;
-  var bodyClassList = documentBody.classList;
 
-
-  var findClassName = function(className,element) {
+  var findClassName = function(className, element) {
     var classList = Array.prototype.slice.call(element.classList); 
 
     for (var i = 0; i < classList.length; i++) {
@@ -23,23 +17,12 @@ var getElementsByClassName = function(className
       }
     }
 
-  //grab all the children nodes
-  //iterate through the children nodes and see if children nodes have classname
-  //push to array if it has it
-  //recursion
-
     var children = Array.prototype.slice.call(element.children);
     for (var i = 0; i < children.length; i++) {
-      findClassName(className,children[i]);
+      findClassName(className, children[i]);
     }
   };
-  //element.classlist || element.children()
 
-  //if body level has classname
-
-  findClassName(className,documentBody);
-  
-//if classname found in element, push it to the result array
-  
+  findClassName(className, documentBody);  
   return elementsWithClassName; 
-  };
+};
